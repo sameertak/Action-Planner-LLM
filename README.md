@@ -60,4 +60,9 @@ This project demonstrates how a cafe service robot can be controlled via high-le
 
     The app is deployed at: [Streamlit](https://cafe-robot-action-planner.streamlit.app/)
 
+## Prompt Example
+```bash
+Serve {item} from Counter to Table (n}
+```
+
 **Important: This experiment is done on mini model, thus will lead to poor performance in general. Better to use larger model for better results.**
