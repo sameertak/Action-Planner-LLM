@@ -141,9 +141,14 @@ st.title("☕ Cafe Robot Simulator")
 
 table_num = random.randint(1, 10)
 
+if "plan" not in st.session_state:
+    st.session_state.plan = f"Serve Coffee from Counter to Table {random.randint(1,10)}."
+
+# 2. Bind the textarea to that state
 plan = st.text_area(
     "Enter a high-level instruction:",
-    value=f"Serve Coffee from Counter to Table {table_num}.",
+    value=st.session_state.plan,
+    key="plan",        # <-- ties edits back into session_state["plan"]
     height=100
 )
 
