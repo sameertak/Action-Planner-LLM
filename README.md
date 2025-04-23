@@ -42,7 +42,7 @@ This project demonstrates how a cafe service robot can be controlled via high-le
 1. **Clone & Install**  
    ```bash
    git clone https://github.com/sameertak/Action-Planner-LLM.git
-   cd cafe-robot-simulator
+   cd Action-Planner-LLM
    pip install -r requirements.txt
    ```
 
@@ -60,4 +60,4 @@ This project demonstrates how a cafe service robot can be controlled via high-le
 
     The app is deployed at: [Streamlit](https://cafe-robot-action-planner.streamlit.app/)
 
-** Important: This experiment is done on mini model, thus will lead to poor performance in general. Better to use larger model for better results. **
+**Important: This experiment is done on mini model, thus will lead to poor performance in general. Better to use larger model for better results.**

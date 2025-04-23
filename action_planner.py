@@ -46,34 +46,8 @@ functions = [
     },
     {
         "type": "function",
-        "name": "turn_left",
-        "description": "Rotate the robot left by a given angle (degrees).",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "angle": {"type": "number"}
-            },
-            "required": ["angle"],
-            "additionalProperties": False
-        }
-    },
-    {
-        "type": "function",
-        "name": "turn_right",
-        "description": "Rotate the robot right by a given angle (degrees).",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "angle": {"type": "number"}
-            },
-            "required": ["angle"],
-            "additionalProperties": False
-        }
-    },
-    {
-        "type": "function",
         "name": "wait",
-        "description": "Pause the robot’s actions for a certain duration (seconds).",
+        "description": "Pause the robot's actions for a certain duration (seconds).",
         "parameters": {
             "type": "object",
             "properties": {
@@ -231,7 +205,7 @@ if st.button("Run Simulation"):
         # loop one function-call at a time
         while True:
             resp = client.responses.create(
-                model="gpt-3.5-turbo",
+                model=model_choice,
                 input=messages,
                 tools=functions,
                 temperature=0.0
