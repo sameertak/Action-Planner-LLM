@@ -1,6 +1,5 @@
 # Cafe Robot Simulator
 
-## Project Title
 **Cafe Robot Simulator**
 
 ---
