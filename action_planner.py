@@ -140,7 +140,7 @@ st.title("☕ Cafe Robot Simulator")
 
 plan = st.text_area(
     "Enter a high-level instruction:",
-    value="Serve Coffee to the customer on Table 4.",
+    value="Serve Coffee to the customer on Table 8.",
     height=100
 )
 
