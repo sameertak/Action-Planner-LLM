@@ -4,6 +4,7 @@ import time
 import streamlit as st
 import matplotlib.pyplot as plt
 from openai import OpenAI
+import random
 
 # ——————————————————————————————————————————————————————————————
 # 1. Initializing OpenAI
@@ -138,10 +139,19 @@ executor = {
 # ——————————————————————————————————————————————————————————————
 st.title("☕ Cafe Robot Simulator")
 
+table_num = random.randint(1, 10)
+
 plan = st.text_area(
     "Enter a high-level instruction:",
-    value="Serve Coffee to the customer on Table 8.",
+    value=f"Serve Coffee from Counter to Table {table_num}.",
     height=100
+)
+
+model_choice = st.selectbox(
+    "Choose your model:",
+    options=["gpt-3.5-turbo", "gpt-4"],
+    index=0,  # default to gpt-3.5-turbo
+    help="Which OpenAI model to use for the plan parser."
 )
 
 def describe_action(fn, args):
@@ -186,7 +196,8 @@ viz_ph.pyplot(fig)
 
 
 if st.button("Run Simulation"):
-
+    if not model_choice:
+        st.error("Select a model")
     with st.spinner("Running simmulation..."):
         # placeholders
         action_ph = st.empty()
@@ -197,12 +208,14 @@ if st.button("Run Simulation"):
 
         # chat setup
         messages = [
-            {"role":"system", "content": """
+            {"role":"system", 
+             "content": """
                 You are a cafe robot:
                 Start at x=0 (gate). Counter at x=11. Tables at x=1…10.
                 To serve: go to counter, pickup(item), go to table N, put(item, "Table N").
-                To ask order: go to table N, wait(2).
-                Return to gate when done.
+                Never move forward from the counter.
+                Use mathematical calculation, to decide backward or forward.
+                Return to gate when all orders are put to the table done.
             """ },
             {"role":"user", "content": plan}
         ]
