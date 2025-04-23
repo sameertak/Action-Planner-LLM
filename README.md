@@ -58,6 +58,6 @@ This project demonstrates how a cafe service robot can be controlled via high-le
 
 4. **Live Preview**
 
-    The app is deployed at: 
+    The app is deployed at: [Streamlit](https://cafe-robot-action-planner.streamlit.app/)
 
 ** Important: This experiment is done on mini model, thus will lead to poor performance in general. Better to use larger model for better results. **
